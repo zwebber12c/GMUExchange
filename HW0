@@ -1,1 +1,17 @@
+Homework 0
+SWE 432, Fall 2016
+Project Proposal
+Dayana Hudson and Zack Webber
 
+Student Marketplace: GMUExchange. GMUExchange is a marketplace for students to connect to
+exchange textbooks, notes, and other miscellaneous items such as class supplies. Verified Mason
+affiliates are eligible to create an account that has full access to GMUExchange services.
+Users will be connected to each other; GMUExchange will not support monetary transactions.
+Users will be able to search by department, class, and professor for class related items.
+Market rates for new and used textbooks will be displayed in listings, and users will be 
+encouraged to post photos of the supplies they are selling to ensure quality consensus.
+A review system will allow users that have been connected to rate each other and GMUExchange.
+User reviews will be available on profile pages to encourage quality interactions.
+
+https://github.com/zwebber12c/GMUExchange
+https://zwebber12c.github.io/GMUExchange/
