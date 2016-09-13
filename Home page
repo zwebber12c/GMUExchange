@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>GMU Exchange - Home</title>
   <link href="stylesheet.css" rel="stylesheet">
@@ -7,20 +7,20 @@
 <body>
   <nav class = "menu">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="search.html">Search</a></li>
+      <li class = "left"><a href="index.html">Home</a></li>
+      <li class = "left"><a href="search.html">Search</a></li>
       <li><a href="#">Log In</a></li>
       <li><a href="#">Sign Up</a></li>
     </ul>
   </nav>
   <!--Floating title over the background image: http://stackoverflow.com/questions/18339549/floating-div-over-an-image-->
-  <div class = "heading">
+  <div class = "mainheading">
     <h1 class = "title">GMU Exchange</h1>
     <h2 class = "subtitle">Tagline</h2>
     <table class = "login">
       <tr>
-        <th><input type = "email" name = "username" placeholder = "e-mail"></th>
-        <th><input type = "password" name = "password" placeholder = "password"></th>
+        <th><input type = "email" name = "username" placeholder = "e-mail" /></th>
+        <th><input type = "password" name = "password" placeholder = "password" /></th>
       </tr>
       <tr>
         <td colspan = "2"><button class = "button">Log In</button></td>
