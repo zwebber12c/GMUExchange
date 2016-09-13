@@ -1,3 +1,7 @@
+/* The Stylesheet defines CSS styling for every page and item in the GMUExchange
+   website.*/
+
+/* Text styling*/
 p,h1,h2,h3,h4,h5,h6,h7,li,.bottomcolumns{
     font-family: sans-serif;
   }
@@ -7,7 +11,6 @@ a {
 }
 
 /* login/signup style*/
-
 h7 {
   display: block;
   padding-top: 5px;
@@ -57,28 +60,21 @@ li.left {
   color: green;
 }
 
-/*Main heading styling*/
-.mainheading {
+/*Main and Section heading styling*/
+.mainheading, .sectionheading {
   max-width: 100%;
   position: relative;
   overflow: hidden;
 }
-.mainheading img {
+.mainheading img, .sectionheading img {
   width: 100%;
   max-height: 100%;
   opacity: 0.45;
+  transition: 1s ease-in;
 }
-
-/*Section heading styling*/
-.sectionheading {
-  max-width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.sectionheading img {
-  width: 100%;
-  max-height: 100%;
-  opacity: 0.45;
+/*Main heading and Section heading image transformation*/
+.mainheading img:hover, .sectionheading img:hover {
+  transform: scale(1.1);
 }
 
 /*Search styling*/
@@ -112,21 +108,21 @@ input[type="text"]{
   width: 80%;
 }
 
-/*Title, Subtitle, and login styling*/
-.title, .subtitle, .login{
+/*Title, Subtitle, and Home Page login styling*/
+.title, .subtitle, .quicklogin{
   width: 100%;
   text-align: center;
   position:absolute;
   z-index: 10;
   color: black;
 }
-.mainheading .table, .login{
+.mainheading .table, .quicklogin{
   width: 100%;
   padding-left: 25%;
   padding-right: 25%;
 }
 
-/*Login styling*/
+/* Home Page Login styling*/
 input[type="email"], input[type="password"] {
   margin: 5px;
   width: 90%;
@@ -134,7 +130,7 @@ input[type="email"], input[type="password"] {
 }
 
 
-/*Button styling*/
+/*Home Page - Button styling*/
 .button {
   background-color: green;
   width: 100%;
@@ -153,7 +149,7 @@ input[type="email"], input[type="password"] {
   color: green;
 }
 
-/*Bottom columns*/
+/*Home Page - Bottom columns*/
 .bottomcolumns {
   width: 100%;
   background-color: #f2f2f2;
@@ -182,6 +178,9 @@ input[type="email"], input[type="password"] {
   font-size: 20px;
 }
 
+/*Home Page - different displays based on size of window (corresponding to
+  device used)*/
+
 /*MOBILE AND PHABLETS*/
 @media screen { /*http://www.w3schools.com/cssref/css3_pr_mediaquery.asp http://mydevice.io/devices/*/
   .mainheading, .sectionheading{
@@ -198,7 +197,7 @@ input[type="email"], input[type="password"] {
     top: 40%;
     font-size: 20px;
   }
-  .login, .signup {
+  .quicklogin {
     visibility: hidden;
   }
   .bottomcolumns .table tr,td{ /*https://css-tricks.com/responsive-data-tables/*/
@@ -240,7 +239,7 @@ input[type="email"], input[type="password"] {
     top: 25%;
     font-size: 30px;
   }
-  .login, .signup {
+  .quicklogin {
     visibility: visible;
     top: 55%;
   }
