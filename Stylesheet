@@ -1,10 +1,40 @@
-p,h1,h2,h3,h4,h5,h6,li,.bottomcolumns{
+p,h1,h2,h3,h4,h5,h6,h7,li,.bottomcolumns{
     font-family: sans-serif;
   }
 a {
   color:inherit;
   text-decoration:none;
 }
+
+/* login/signup style*/
+
+h7 {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  width:100%;
+  color: white;
+  background: green;
+}
+.signup{
+  display: block;
+  width: 55%;
+  text-align: right;
+}
+.button2{
+  width: 80px;
+  height: 40px;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.button2:hover{
+  background-color: white;
+  color: green;
+}
+
 /*Menu styling*/
 .menu {
   margin-top: -20px;
