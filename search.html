@@ -1,0 +1,79 @@
+<!--
+The Search page allows the user to search GMUExchange, and displays results
+in a table format that provides an image, a description, and the price of the
+item. The table clearly distinguishes items from each other by displaying a
+light yellow background to even-numbered results.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GMUExchange - Search</title>
+  <link href="stylesheet.css" rel="stylesheet">
+</head>
+<body>
+  <!--Menu-->
+  <nav class = "menu">
+    <ul>
+      <li class = "left"><a href="index.html">Home</a></li>
+      <li class = "left"><a href="search.html">Search</a></li>
+      <li><a href="login.html">Log In</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+  <!--sectionheading: laying out the first section of the site featuring an image
+  labeled for reuse-->
+  <!--Floating div over the background image: http://stackoverflow.com/questions/18339549/floating-div-over-an-image-->
+  <div class = "sectionheading">
+    <h1 class = "title">GMUExchange</h1>
+    <h2 class = "subtitle">Search</h2>
+    <!--Image labeled for reuse-->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/An_aerial_view_of_the_Johnson_Center_at_dawn..jpg">
+  </div>
+  <div class = "search">
+    <table class = "searchboxtable">
+      <tr>
+        <td><label><p>Search: <input type = "text" placeholder = "Search terms" /></p></label></td>
+        <td><button class = "button">Submit</button></td>
+      </tr>
+    </table>
+
+    <!--Table holding sample results; will be generated using a database in the
+    real product-->
+    <table class = "searchresulttable">
+      <tr>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>IMAGE 1</td>
+        <td>DESCRIPTION 1 asdfsdf asdfasd</td>
+        <td>$XXX.XX</td>
+      </tr>
+      <tr>
+        <td>IMAGE 2</td>
+        <td>DESCRIPTION 2 asdfsdf asdfasd</td>
+        <td>$XXX.XX</td>
+      </tr>
+      <tr>
+        <td>IMAGE 3</td>
+        <td>DESCRIPTION 3 asdfsdf asdfasd</td>
+        <td>$XXX.XX</td>
+      </tr>
+      <tr>
+        <td>IMAGE 4</td>
+        <td>DESCRIPTION 4 asdfsdf asdfasd</td>
+        <td>$XXX.XX</td>
+      </tr>
+    </table>
+  </div>
+
+  <!--Footer-->
+  <div class = "footer">
+    <h3>SWE 432: HW 1</h3>
+    <p>Dayana Hudson</p>
+    <p>Zack Webber</p>
+    <p><a href="https://github.com/zwebber12c/GMUExchange/">GitHub</a></p>
+  </div>
+</body>
+</html>
