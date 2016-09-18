@@ -37,6 +37,9 @@ h7 {
   background-color: white;
   color: green;
 }
+.main{
+  padding-bottom:150px;
+}
 
 /*Menu styling*/
 .menu {
