@@ -132,7 +132,7 @@ $(document).ready(function() {
             '<br>Last name:<br><input type="text" id="lastName" placeholder = "Last Name"><br>' +
             '<br><button class = "button" id = "signUpButton" onlick = "createUser():">Sign Up</button></form>'
         );
-         function createUser(){
+         function createUser(){             //this takes data entered into the sign up fields and creates a new user and add its to the user list
             var user = {
                     email: document.getElementById('email').value,
                     password: document.getElementById('password').value,
