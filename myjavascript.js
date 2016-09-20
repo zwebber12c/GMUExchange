@@ -26,6 +26,7 @@ $(document).ready(function() {
             '<td><h3>Feature 3</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
             '</tr></table></div>'
         )
+        history.pushState({position:history.getState().data.position+1},"home","/home");
     });
 
     $('#quickLoginButton').click(function(){
@@ -54,6 +55,7 @@ $(document).ready(function() {
             '<br><br>Password:<input type="password" name="password"><br><br>' +
             '<button class = "button" id = "logInButton">Log In</button>'
         );
+        history.pushState({position:history.getState().data.position+1},"login","/login");
     });
 
     $('#signUpLink').click(function(){
@@ -70,6 +72,7 @@ $(document).ready(function() {
             '<br>Last name:<input type="text" name="lastname"><br>' +
             '<br><button class = "button" id = "signUpButton">Sign Up</button></form>'
         );
+        history.pushState({position:history.getState().data.position+1},"signup","/signup");
     });
 
     $('#searchLink').click(function(){
@@ -83,15 +86,12 @@ $(document).ready(function() {
             '<p>Search: <input type = "text" placeholder = "Search terms" /></p></label></td><td>' +
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>'
         );
+        history.pushState({position:history.getState().data.position+1},"search","search");
     });
 
     $('#logOut').click(function(){
         $('.rightMenuLinks').show();
         $('#userName').html('');
         $('#logOut').css({"visibility": "hidden"});
-    });
-
-    $('#backLink').click(function(){
-       history.back(1);
     });
 });
