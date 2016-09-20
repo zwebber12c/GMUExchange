@@ -1,15 +1,7 @@
-<!--
-Home Page: introduces user to GMUExchange and provides a quick way to log in,
-prominently displayed in the first section of the site. The Home Page also
-introduces the user to GMUExchange's main features, and acknowledges the
-developers in the footer.
-The Home Page adjusts differently to mobile, table, and to two window sizes
-in computer use.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>GMUExchange - Home</title>
+    <title></title>
     <link href="stylesheet.css" rel="stylesheet">
     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type = "text/javascript" src = "myjavascript.js"></script>
@@ -20,23 +12,25 @@ in computer use.
     <ul>
         <li class = "left" id = "homeLink">Home</li>
         <li class = "left" id = "searchLink">Search</li>
-        <li id = "logInLink">Log In</li>
-        <li id = "signUpLink">Sign Up</li>
+        <li class = "rightMenuLinks" id = "logInLink">Log In</li>
+        <li class = "rightMenuLinks" id = "signUpLink">Sign Up</li>
+        <li id = "logOut">Log Out</li>
+        <li><span id = "userName"></span></li>
     </ul>
 </nav>
 
-<!--mainheading: laying out the first section of the site featuring an image
+<!--mainHeading: laying out the first section of the site featuring an image
 labeled for reuse-->
 <!--Floating title over the background image: http://stackoverflow.com/questions/18339549/floating-div-over-an-image-->
-<div class = "mainheading">
+<div class = "mainHeading">
     <h1 class = "title">GMUExchange</h1>
-    <h2 class = "subtitle" id = "subtitle">Tagline</h2>
+    <h2 class = "subtitle"></h2>
 
     <!--Quick log in access-->
-    <table class = "quicklogin">
+    <table class = "quickLogin">
         <tr>
-            <th><input type = "email" name = "username" placeholder = "e-mail" /></th>
-            <th><input type = "password" name = "password" placeholder = "password" /></th>
+            <th><input type = "email" name = "username" placeholder = "e-mail" id = "quickLoginEmail"/></th>
+            <th><input type = "password" name = "password" placeholder = "password" id = "quickLoginPassword"/></th>
         </tr>
         <tr>
             <td colspan = "2"><button class = "button" id = "quickLoginButton">Log In</button></td>
@@ -46,95 +40,14 @@ labeled for reuse-->
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/An_aerial_view_of_the_Johnson_Center_at_dawn..jpg">
 </div>
 
-<div class = "sectionheading">
+<div class = "sectionHeading">
     <h1 class = "title">GMUExchange</h1>
-    <h2 class = "subtitle">Search</h2>
+    <h2 class = "subtitle"  id = "subtitle"></h2>
     <!--Image labeled for reuse-->
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/An_aerial_view_of_the_Johnson_Center_at_dawn..jpg">
 </div>
 
-<!--Bottom columns to display features of GMUExchange at bottom of Home Page-->
-<div class = "bottomcolumns">
-    <h1 class = "features">Features</h1>
-    <table>
-        <tr>
-            <td><h3>Feature 1</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
-            <td><h3>Feature 2</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
-            <td><h3>Feature 3</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
-        </tr>
-    </table>
-</div>
-
-<div class = "search">
-    <table class = "searchboxtable">
-        <tr>
-            <td><label><p>Search: <input type = "text" placeholder = "Search terms" /></p></label></td>
-            <td><button class = "button" id = "searchButton">Submit</button></td>
-        </tr>
-    </table>
-
-    <!--Table holding sample results; will be generated using a database in the
-    real product-->
-    <table class = "searchresulttable">
-        <tr>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>IMAGE 1</td>
-            <td>DESCRIPTION 1 asdfsdf asdfasd</td>
-            <td>$XXX.XX</td>
-        </tr>
-        <tr>
-            <td>IMAGE 2</td>
-            <td>DESCRIPTION 2 asdfsdf asdfasd</td>
-            <td>$XXX.XX</td>
-        </tr>
-        <tr>
-            <td>IMAGE 3</td>
-            <td>DESCRIPTION 3 asdfsdf asdfasd</td>
-            <td>$XXX.XX</td>
-        </tr>
-        <tr>
-            <td>IMAGE 4</td>
-            <td>DESCRIPTION 4 asdfsdf asdfasd</td>
-            <td>$XXX.XX</td>
-        </tr>
-    </table>
-</div>
-
-<div class = "signup">
-    <!--Form to get Sign Up information from user-->
-    <form class = "creds">
-        <br>
-        Email:<input type="text" name="email" pattern="[a-z0-9]*@(masonlive\.)?gmu\.edu">
-        <br>
-        <br>
-        Password:<input type = "password" name = "password">
-        <br>
-        <br>
-        First name:<input type="text" name="firstname">
-        <br>
-        <br>
-        Last name:<input type="text" name="lastname">
-        <br>
-        <br>
-        <button class = "button" id = "signUpButton">Sign Up</button>
-    </form>
-</div>
-
-<div class = "login">
-    <form class = "creds">
-        <br>
-        Email:<input type="text" name="email">
-        <br>
-        <br>
-        Password:<input type="password" name="password">
-        <br>
-        <br>
-        <button class = "button" id = "logInButton">Log In</button>
-    </form>
+<div id = "content">
 </div>
 
 </body>
