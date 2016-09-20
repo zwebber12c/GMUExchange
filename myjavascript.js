@@ -15,7 +15,9 @@ var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
 
 
 $(document).ready(function() {
-    //history.pushState({activePane: 'Home'},''); //https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate
+    //push state onto history.
+    //https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate
+    history.pushState({activePane: 'Home'},'');
     $('.mainHeading').show();
     $('.sectionHeading').hide();
     /*
@@ -42,7 +44,7 @@ $(document).ready(function() {
 
     //Home Link tab
     $('#homeLink').click(function(){
-        //history.pushState({activePane: 'Home'},'');
+        history.pushState({activePane: 'Home'},'');
         //window.alert(history.state.activePane + ' ' + history.length);
         //window.history.go(-2);
         document.title = 'GMUExchange - Home';
@@ -51,7 +53,7 @@ $(document).ready(function() {
         $('.mainHeading').show();
         $('.sectionHeading').hide();
         //Collect information from starter data; populate bottomColumns with Features
-        var temp = '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr>';
+        var temp = '<div class = "bottomColumns" data-list-size="3"><h1 class = "features">Features</h1><table><tr>';
         for (feature of features) {
             temp = temp.concat('<td><h3>' + feature.name + '</h3>' + feature.detail + '</td>');
         }
@@ -60,15 +62,17 @@ $(document).ready(function() {
 
     });
 
-
+    //quick login button behavior - home page
     $('#quickLoginButton').click(quickLogInUser);
 
 
     function quickLogInUser(){
+        //get values
         var username = $('#quickLoginEmail').val();
         var password = $('#quickLoginPassword').val();
         //Collect information from starter data; check username and password credentials
         for( var user of users) {
+            //check validity, update page
             if (user.email == username && user.password == password) {
                 $('.rightMenuLinks').hide();
                 $('#userName').html('Welcome, ' + user.first_name + '!');
@@ -80,9 +84,9 @@ $(document).ready(function() {
         }
     }
 
-
+    //log in page
     $('#logInLink').click(function(){
-        //history.pushState({activePane: 'logIn'},'');
+        history.pushState({activePane: 'logIn'},'');
         document.title = 'GMUExchange - Log In';
         $('#subtitle').html('<h2 class="subtitle">Log In</h2>');
         $('.mainHeading').hide();
@@ -95,7 +99,7 @@ $(document).ready(function() {
         );
     });
 
-
+    //button in log in page - hehavior
     $(document).on("click",'#regularLogInButton',function(){
         var username = $('#regularLogInEmail').val();
         var password = $('#regularLogInPassword').val();
@@ -112,9 +116,9 @@ $(document).ready(function() {
         }
     });
 
-
+    //page to sign up
     $('#signUpLink').click(function(){
-        //history.pushState({activePane: 'signUp'},'');
+        history.pushState({activePane: 'signUp'},'');
         document.title = 'GMUExchange - Sign Up';
         $('#subtitle').html('<h2 class="subtitle">Sign Up</h2>');
         $('.mainHeading').hide();
@@ -130,13 +134,9 @@ $(document).ready(function() {
         );
     });
 
-    $(document).on("click",'#signUpButton',function(){
-        window.alert('clicked');
-    });
-
-
+    //search page
     $('#searchLink').click(function(){
-        //history.pushState({activePane: 'Search'},'');
+        history.pushState({activePane: 'Search'},'');
         document.title = 'GMUExchange - Search';
         $('#subtitle').html('<h2 class="subtitle">Search</h2>');
         $('.mainHeading').hide();
@@ -144,7 +144,7 @@ $(document).ready(function() {
         $('.bottomColumns').hide();
 
         //Collect information from starter data; populate searchBoxTable with Items
-        var temp = '<div class = "search"><table class = "searchBoxTable"><tr><td><label>' +
+        var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
             '<p>Search: <input type = "text" placeholder = "Search terms" id = "searchBox"/></p></label></td><td>' +
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
             '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
@@ -156,15 +156,16 @@ $(document).ready(function() {
         $('#content').html(temp);
     });
 
-
+    //log out page
     $('#logOut').click(function(){
         $('.rightMenuLinks').show();
         $('#userName').css({"visibility": "hidden"});
         $('#logOut').css({"visibility": "hidden"}); //http://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery
     });
 
-
+    //handling of back button
     $('#backLink').click(function(){
         history.back(1);
     });
+
 });
