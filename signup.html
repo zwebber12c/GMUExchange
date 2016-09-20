@@ -54,33 +54,36 @@
 </html>
 
 
-
+<!-- This script creates a user list and populates it with users when the form is filled out and submitted-->
 <script>
 var users = [];
-
+//when the user clicks submit it runs the createUser function
 document.getElementById("submit")
 	.addEventListener("click", createUser);
+	//creates a user and adds them to a list of all users (this is still a work in progress but this takes the data from the form
+	// to create a new user)
  function createUser()
- 			{
+{
       	var user =
-        	{
-          		Email: document.getElementById('email').value,
-              Password: document.getElementById('password').value,
-              NameFirst: document.getElementById('nameFirst').value,
-              NameLast: document.getElementById('nameLast').value
-      	 };
-         
-         users.push(user);
-       }
-       
+       	{
+       		Email: document.getElementById('email').value,
+              	Password: document.getElementById('password').value,
+              	NameFirst: document.getElementById('nameFirst').value,
+              	NameLast: document.getElementById('nameLast').value
+      	};
+      	users.push(user);
+	
+}
+       //this function disables the submit button and then creates a new message on the screen
 function created()
-	{
-  	var disable = document.querySelector("button");
-    disable.setAttribute("disabled", "disabled");
-    var p = document.createElement("P");        
-		var t = document.createTextNode("Account created, you are free to search our listings or create your own now!");
-		p.appendChild(t);
-		document.getElementById("sgnup").appendChild(p);
-  }
+{  		
+	var disable = document.querySelector("button");
+    	disable.setAttribute("disabled", "disabled");
+    	var p = document.createElement("P");        
+	var t = document.createTextNode("Account created, you are free to search our listings or create your own now!");
+	p.appendChild(t);
+	document.getElementById("sgnup").appendChild(p);
+	
+}
   </script>
 
