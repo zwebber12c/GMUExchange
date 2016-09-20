@@ -2,7 +2,7 @@
    website.*/
 
 /* Text styling*/
-p,h1,h2,h3,h4,h5,h6,li,.bottomColumns,.creds{
+p,h1,h2,h3,h4,h5,h6,li,.bottomColumns,.creds,.search{
   font-family: sans-serif;
 }
 a {
@@ -15,12 +15,14 @@ html {
 body {
     min-height: 100%;
 }
-/* login/signup style*/
+
+content {
+    min-height: 100%;
+}
 
 .creds{
-  min-height: 100%;
   position: relative;
-  padding-bottom:150px;
+  padding: 15px;
   display: block;
   width: 55%;
   text-align: left;
@@ -43,13 +45,14 @@ body {
 li.left {
   float: left;
 }
+
 #logOut{
     display: inline-block;
     visibility: hidden;
     padding: 10px;
     color: white;
 }
-#logOut:hover {
+#logOut:hover{
     color: green;
 }
 .menu li:hover {
@@ -78,6 +81,11 @@ li.left {
 .search {
   background-color: #f2f2f2;
   padding: 15px;
+}
+.search #searchTerms {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold; /*http://www.w3schools.com/cssref/pr_font_weight.asp*/
 }
 .search .button {
   width: 25%;
