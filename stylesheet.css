@@ -1,57 +1,29 @@
-p,h1,h2,h3,h4,h5,h6,h7,li,.bottomcolumns{
-    font-family: sans-serif;
-  }
+/* The Stylesheet defines CSS styling for every page and item in the GMUExchange
+   website.*/
+
+/* Text styling*/
+p,h1,h2,h3,h4,h5,h6,li,.bottomcolumns,.creds{
+  font-family: sans-serif;
+}
 a {
   color:inherit;
   text-decoration:none;
 }
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+}
 /* login/signup style*/
-h7 {
-  display: block;
-  padding-top: 5px;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  width:100%;
-  color: white;
-  background: green;
-}
-.body{
-  min-height: 100%;
-  position: relative;
-}
-.main{
-  padding-bottom: 150px;
-}
-.footer2{
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 150px;
-  background-color: #333333;
-  text-align: center;
-  color: white;
-  padding: 5px;
-  
-}
-.signup{
+
+.creds{
   min-height: 100%;
   position: relative;
   padding-bottom:150px;
   display: block;
   width: 55%;
-  text-align: right;
-}
-.button2{
-  width: 80px;
-  height: 40px;
-  background-color: green;
-  color: white;
-  text-align: center;
-}
-
-.button2:hover{
-  background-color: white;
-  color: green;
+  text-align: left;
 }
 
 /*Menu styling*/
@@ -155,6 +127,9 @@ input[type="email"], input[type="password"] {
   text-align: center;
   border: none;
   font-size: 20px;
+}
+.creds .button {
+    margin: auto 50%;
 }
 .searchboxtable .button {
   width: 100%;
