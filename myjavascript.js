@@ -126,8 +126,8 @@ $(document).ready(function() {
         $('.bottomColumns').hide();
         $('#content').html(
             '<form class = "creds">' +
-            '<br>Email:<br>< id = "email" input type="text" placeholder="GMU e-mail" pattern="[a-z0-9]*@(masonlive\\.)?gmu\\.edu"><br>' +
-            '<br>Password:<br>< id = "password" input type="password" placeholder = "password"><br>' +
+            '<br>Email:<br><input type="text" id = "email" placeholder="GMU e-mail" pattern="[a-z0-9]*@(masonlive\\.)?gmu\\.edu"><br>' +
+            '<br>Password:<br><input type="password" id = "password" placeholder = "password"><br>' +
             '<br>First name:<br><input type="text" placeholder = "First Name" id="firstName"><br>' +
             '<br>Last name:<br><input type="text" id="lastName" placeholder = "Last Name"><br>' +
             '<br><button class = "button" id = "signUpButton" onlick = "createUser():">Sign Up</button></form>'
