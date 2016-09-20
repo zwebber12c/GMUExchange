@@ -21,7 +21,7 @@
   </div>
   <!--Form to get Log In information from user-->
   <div class = main>
-  <form class = "signup" action="placeholder">
+  <form id = "log" class = "signup" action="">
     <br>
     Email:<input type="text" name="email">
     <br>
@@ -29,7 +29,7 @@
     Password:<input type="text" name="password">
     <br>
     <br>
-    <input class="button2" type="submit" value="Login"><a href="index.html"></a>
+    <input class="button2" type="button" value="Login" onclick = "logged();">
   </form>
   </div>
   <!--Footer-->
@@ -42,3 +42,14 @@
 </div>
 </body>
 </html>
+
+<!-- Javascript DOM that replaces login form with a message-->
+<script>
+function logged()
+{
+		var logg = document.getElementById("log");
+    var par = document.createElement("P");
+    par.innerHTML = "Log in Successful";
+    logg.parentNode.replaceChild(par, logg);
+}</script>
+
