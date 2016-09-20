@@ -2,7 +2,7 @@
    website.*/
 
 /* Text styling*/
-p,h1,h2,h3,h4,h5,h6,li,.bottomcolumns,.creds{
+p,h1,h2,h3,h4,h5,h6,li,.bottomColumns,.creds{
   font-family: sans-serif;
 }
 a {
@@ -43,25 +43,34 @@ body {
 li.left {
   float: left;
 }
+#logOut{
+    display: inline-block;
+    visibility: hidden;
+    padding: 10px;
+    color: white;
+}
+#logOut:hover {
+    color: green;
+}
 .menu li:hover {
   background-color: white;
   color: green;
 }
 
 /*Main and Section heading styling*/
-.mainheading, .sectionheading {
+.mainHeading, .sectionHeading {
   max-width: 100%;
   position: relative;
   overflow: hidden;
 }
-.mainheading img, .sectionheading img {
+.mainHeading img, .sectionHeading img {
   width: 100%;
   max-height: 100%;
   opacity: 0.45;
   transition: 1s ease-in;
 }
 /*Main heading and Section heading image transformation*/
-.mainheading img:hover, .sectionheading img:hover {
+.mainHeading img:hover, .sectionHeading img:hover {
   transform: scale(1.1);
 }
 
@@ -73,12 +82,12 @@ li.left {
 .search .button {
   width: 25%;
 }
-.searchresulttable {
+.searchResultTable {
   padding: 10px;
   width: 100%;
   font-family: sans-serif;
 }
-.searchboxtable {
+.searchBoxTable {
   width: 100%;
 }
 .search th {
@@ -88,7 +97,7 @@ li.left {
 .search th, td {
   padding: 10px;
 }
-.searchresulttable tr:nth-child(odd){ /*http://www.w3schools.com/css/css_table.asp*/
+.searchResultTable tr:nth-child(odd){ /*http://www.w3schools.com/css/css_table.asp*/
   background-color: #ffffcc;
 }
 input[type="text"]{
@@ -97,14 +106,14 @@ input[type="text"]{
 }
 
 /*Title, Subtitle, and Home Page login styling*/
-.title, .subtitle, .quicklogin{
+.title, .subtitle, .quickLogin{
   width: 100%;
   text-align: center;
   position:absolute;
   z-index: 10;
   color: black;
 }
-.mainheading .table, .quicklogin{
+.mainHeading .table, .quickLogin{
   width: 100%;
   padding-left: 25%;
   padding-right: 25%;
@@ -131,7 +140,7 @@ input[type="email"], input[type="password"] {
 .creds .button {
     margin: auto 50%;
 }
-.searchboxtable .button {
+.searchBoxTable .button {
   width: 100%;
 }
 .button:active {
@@ -141,7 +150,7 @@ input[type="email"], input[type="password"] {
 }
 
 /*Home Page - Bottom columns*/
-.bottomcolumns {
+.bottomColumns {
   width: 100%;
   background-color: #f2f2f2;
   padding-bottom: 15px;
@@ -149,7 +158,7 @@ input[type="email"], input[type="password"] {
   text-align: center;
   padding-top: 5px;
 }
-.bottomcolumns .table, td{
+.bottomColumns .table, td{
   padding-bottom: 15px;
   padding-right: 15px;
   padding-left: 15px;
@@ -174,10 +183,10 @@ input[type="email"], input[type="password"] {
 
 /*MOBILE AND PHABLETS*/
 @media screen { /*http://www.w3schools.com/cssref/css3_pr_mediaquery.asp http://mydevice.io/devices/*/
-  .mainheading, .sectionheading{
+  .mainHeading, .sectionHeading{
     max-height: 150px;
   }
-  .mainheading .features h1 {
+  .mainHeading .features h1 {
     font-size: 25px;
   }
   .title {
@@ -188,10 +197,10 @@ input[type="email"], input[type="password"] {
     top: 40%;
     font-size: 20px;
   }
-  .quicklogin {
+  .quickLogin {
     visibility: hidden;
   }
-  .bottomcolumns .table tr,td{ /*https://css-tricks.com/responsive-data-tables/*/
+  .bottomColumns .table tr,td{ /*https://css-tricks.com/responsive-data-tables/*/
     display: block;
     text-align: left;
   }
@@ -199,7 +208,7 @@ input[type="email"], input[type="password"] {
 
 /*TABLET*/
 @media screen and (min-width: 480px){ /*max-height:800px http://www.w3schools.com/cssref/css3_pr_mediaquery.asp http://mydevice.io/devices/*/
-  .mainheading, .sectionheading {
+  .mainHeading, .sectionHeading {
     max-height: 200px;
   }
   .title {
@@ -213,46 +222,46 @@ input[type="email"], input[type="password"] {
 }
 /*COMPUTER: FRACTION OF A WINDOW*/
 @media screen and (min-width: 700px){
-  .mainheading {
+  .mainHeading {
     max-height: 400px;
   }
-  .sectionheading {
+  .sectionHeading {
     max-height: 250px;
   }
-  .searchresulttable {
+  .searchResultTable {
     min-height: 310px;
   }
-  .mainheading .title {
+  .mainHeading .title {
     top: 5%;
     font-size: 50px;
   }
-  .mainheading .subtitle {
+  .mainHeading .subtitle {
     top: 25%;
     font-size: 30px;
   }
-  .quicklogin {
+  .quickLogin {
     visibility: visible;
     top: 55%;
   }
-  .bottomcolumns .table tr,td{
+  .bottomColumns .table tr,td{
     display: table-cell;
     text-align: center;
   }
 }
 /*COMPUTER: FULL SCREEN*/
 @media screen and (min-width: 1400px) { /*http://www.w3schools.com/cssref/css3_pr_mediaquery.asp*/
-  .mainheading .title {
+  .mainHeading .title {
     top: 0%;
     font-size: 60px;
   }
-  .searchresulttable {
+  .searchResultTable {
     min-height: 350px;
   }
-  .mainheading .subtitle {
+  .mainHeading .subtitle {
     top: 20%;
     font-size: 40px;
   }
-  .bottomcolumns, .searchresulttable {
+  .bottomColumns, .searchResultTable {
     min-height: 290px;
   }
 }
