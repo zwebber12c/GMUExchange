@@ -1,37 +1,73 @@
+//Set up starter data
 var users = [{ first_name: "Joe", last_name: "Smith", email: "jsmith@gmu.edu", password: "123"},
     { first_name: "Jane", last_name: "Doe", email: "jdoe@gmu.edu", password: "123"},
     { first_name: "Lisa", last_name: "Johnson", email: "ljohnson@gmu.edu", password: "123"},
     { first_name: "Mary", last_name: "Walter", email: "mwalter@gmu.edu", password: "123"}];
 
-$(document).ready(function() {
-    $('#content').html(
-        '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr><td>' +
-        '<h3>Feature 1</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
-        '<td><h3>Feature 2</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
-        '<td><h3>Feature 3</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
-        '</tr></table></div>'
-    )
-    $('.sectionHeading').hide();
+var features = [{name: "Feature 1", detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+    {name: "Feature 2", detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+    {name: "Feature 3", detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}];
 
+var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
+    {image: "IMAGE 2", description: "DESCRIPTION 2", price: "$XXX.XX"},
+    {image: "IMAGE 3", description: "DESCRIPTION 3", price: "$XXX.XX"},
+    {image: "IMAGE 4", description: "DESCRIPTION 4", price: "$XXX.XX"}];
+
+
+$(document).ready(function() {
+    //history.pushState({activePane: 'Home'},''); //https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate
+    $('.mainHeading').show();
+    $('.sectionHeading').hide();
+    /*
+     Initial attempt after https://piazza.com/class/irw2gs1od6u14p?cid=34:
+
+     $('#content').html(
+     '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr>'
+     );
+     for (feature of features) {
+     $('#content').append('<td><h3>' + feature.name + '</h3>' + feature.detail + '</td>'); //FIX
+     }
+     $('#content').append('</tr></table></div>');
+
+     The class did not apply to the items being added until the newer method of concat() was applied
+     */
+    //Collect information from starter data; populate bottomColumns with Features
+    var temp = '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr>';
+    for (feature of features) {
+        temp = temp.concat('<td><h3>' + feature.name + '</h3>' + feature.detail + '</td>');
+    }
+    temp = temp.concat('</tr></table></div>');
+    $('#content').html(temp);
+
+
+    //Home Link tab
     $('#homeLink').click(function(){
+        //history.pushState({activePane: 'Home'},'');
+        //window.alert(history.state.activePane + ' ' + history.length);
+        //window.history.go(-2);
         document.title = 'GMUExchange - Home';
         $('#subtitle').html('<h2 class="subtitle">Tag line</h2>');
         $('.searchResultTable').hide();
         $('.mainHeading').show();
         $('.sectionHeading').hide();
-        $('#content').html(
-            '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr><td>' +
-            '<h3>Feature 1</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
-            '<td><h3>Feature 2</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
-            '<td><h3>Feature 3</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>' +
-            '</tr></table></div>'
-        )
-        history.pushState({position:history.getState().data.position+1},"home","/home");
+        //Collect information from starter data; populate bottomColumns with Features
+        var temp = '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr>';
+        for (feature of features) {
+            temp = temp.concat('<td><h3>' + feature.name + '</h3>' + feature.detail + '</td>');
+        }
+        temp = temp.concat('</tr></table></div>');
+        $('#content').html(temp);
+
     });
 
-    $('#quickLoginButton').click(function(){
+
+    $('#quickLoginButton').click(quickLogInUser);
+
+
+    function quickLogInUser(){
         var username = $('#quickLoginEmail').val();
         var password = $('#quickLoginPassword').val();
+        //Collect information from starter data; check username and password credentials
         for( var user of users) {
             if (user.email == username && user.password == password) {
                 $('.rightMenuLinks').hide();
@@ -39,26 +75,46 @@ $(document).ready(function() {
                 $('.mainHeading').hide();
                 $('.sectionHeading').show();
                 $('#subtitle').html('<h2 class="subtitle">Tag line</h2>');
-                $('#logOut').css({"visibility": "visible"});
+                $('#logOut').css({"visibility": "visible"}); //http://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery
             }
         }
-     });
+    }
+
 
     $('#logInLink').click(function(){
+        //history.pushState({activePane: 'logIn'},'');
         document.title = 'GMUExchange - Log In';
         $('#subtitle').html('<h2 class="subtitle">Log In</h2>');
         $('.mainHeading').hide();
         $('.sectionHeading').show();
-        $('.bottomColumns').hide();
         $('#content').html(
-            '<form class = "creds"><br>Email:<input type="text" name="email">' +
-            '<br><br>Password:<input type="password" name="password"><br><br>' +
-            '<button class = "button" id = "logInButton">Log In</button>'
+            '<form class = "creds"><br>Email:<br>' +
+            '<input type="text" placeholder="GMU e-mail" id = "regularLogInEmail" pattern="[a-z0-9]*@(masonlive\\.)?gmu\\.edu" />' +
+            '<br><br>Password:<br><input type="password" placeholder = "password" id = "regularLogInPassword" /><br><br>' +
+            '<button class = "button" id = "regularLogInButton">Log In</button></form>'
         );
-        history.pushState({position:history.getState().data.position+1},"login","/login");
     });
 
+
+    $(document).on("click",'#regularLogInButton',function(){
+        var username = $('#regularLogInEmail').val();
+        var password = $('#regularLogInPassword').val();
+        //Collect information from starter data; check username and password credentials
+        for( var user of users) {
+            if (user.email == username && user.password == password) {
+                $('.rightMenuLinks').hide();
+                $('#userName').html('Welcome, ' + user.first_name + '!');
+                $('.mainHeading').hide();
+                $('.sectionHeading').show();
+                $('#subtitle').html('<h2 class="subtitle">Tag line</h2>');
+                $('#logOut').css({"visibility": "visible"}); //http://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery
+            }
+        }
+    });
+
+
     $('#signUpLink').click(function(){
+        //history.pushState({activePane: 'signUp'},'');
         document.title = 'GMUExchange - Sign Up';
         $('#subtitle').html('<h2 class="subtitle">Sign Up</h2>');
         $('.mainHeading').hide();
@@ -66,32 +122,49 @@ $(document).ready(function() {
         $('.bottomColumns').hide();
         $('#content').html(
             '<form class = "creds">' +
-            '<br>Email:<input type="text" name="email" pattern="[a-z0-9]*@(masonlive\.)?gmu\.edu"><br>' +
-            '<br>Password:<input type = "password" name = "password"><br>' +
-            '<br>First name:<input type="text" name="firstname"><br>' +
-            '<br>Last name:<input type="text" name="lastname"><br>' +
+            '<br>Email:<br><input type="text" placeholder="GMU e-mail" pattern="[a-z0-9]*@(masonlive\\.)?gmu\\.edu"><br>' +
+            '<br>Password:<br><input type="password" placeholder = "password"><br>' +
+            '<br>First name:<br><input type="text" placeholder = "First Name" id="firstName"><br>' +
+            '<br>Last name:<br><input type="text" id="lastName" placeholder = "Last Name"><br>' +
             '<br><button class = "button" id = "signUpButton">Sign Up</button></form>'
         );
-        history.pushState({position:history.getState().data.position+1},"signup","/signup");
     });
 
+    $(document).on("click",'#signUpButton',function(){
+        window.alert('clicked');
+    });
+
+
     $('#searchLink').click(function(){
+        //history.pushState({activePane: 'Search'},'');
         document.title = 'GMUExchange - Search';
         $('#subtitle').html('<h2 class="subtitle">Search</h2>');
         $('.mainHeading').hide();
         $('.sectionHeading').show();
         $('.bottomColumns').hide();
-        $('#content').html(
-            '<table class = "searchBoxTable"><tr><td><label>' +
-            '<p>Search: <input type = "text" placeholder = "Search terms" /></p></label></td><td>' +
-            '<button class = "button" id = "searchButton">Submit</button></td></tr></table>'
-        );
-        history.pushState({position:history.getState().data.position+1},"search","search");
+
+        //Collect information from starter data; populate searchBoxTable with Items
+        var temp = '<div class = "search"><table class = "searchBoxTable"><tr><td><label>' +
+            '<p>Search: <input type = "text" placeholder = "Search terms" id = "searchBox"/></p></label></td><td>' +
+            '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
+            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
+        for (item of items) {
+            temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
+                '</td><td>'+ item.price+'</td></tr>');
+        }
+        temp = temp.concat('</table></div>');
+        $('#content').html(temp);
     });
+
 
     $('#logOut').click(function(){
         $('.rightMenuLinks').show();
-        $('#userName').html('');
-        $('#logOut').css({"visibility": "hidden"});
+        $('#userName').css({"visibility": "hidden"});
+        $('#logOut').css({"visibility": "hidden"}); //http://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery
+    });
+
+
+    $('#backLink').click(function(){
+        history.back(1);
     });
 });
