@@ -4,9 +4,9 @@ var users = [{ first_name: "Joe", last_name: "Smith", email: "jsmith@gmu.edu", p
     { first_name: "Lisa", last_name: "Johnson", email: "ljohnson@gmu.edu", password: "123"},
     { first_name: "Mary", last_name: "Walter", email: "mwalter@gmu.edu", password: "123"}];
 
-var features = [{name: "Feature 1", detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-    {name: "Feature 2", detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
-    {name: "Feature 3", detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}];
+var features = [{name: "Feature 1", detail: "Feat 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+    {name: "Feature 2", detail: "Feat 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+    {name: "Feature 3", detail: "Feat 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}];
 
 var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
     {image: "IMAGE 2", description: "DESCRIPTION 2", price: "$XXX.XX"},
@@ -18,6 +18,7 @@ $(document).ready(function() {
     //push state onto history.
     //https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onpopstate
     history.pushState({activePane: 'Home'},'');
+    //show main heading, hide section heading
     $('.mainHeading').show();
     $('.sectionHeading').hide();
     /*
@@ -49,7 +50,6 @@ $(document).ready(function() {
         //window.history.go(-2);
         document.title = 'GMUExchange - Home';
         $('#subtitle').html('<h2 class="subtitle">Tag line</h2>');
-        $('.searchResultTable').hide();
         $('.mainHeading').show();
         $('.sectionHeading').hide();
         //Collect information from starter data; populate bottomColumns with Features
@@ -123,7 +123,6 @@ $(document).ready(function() {
         $('#subtitle').html('<h2 class="subtitle">Sign Up</h2>');
         $('.mainHeading').hide();
         $('.sectionHeading').show();
-        $('.bottomColumns').hide();
         $('#content').html(
             '<form class = "creds">' +
             '<br>Email:<br><input type="text" id = "email" placeholder="GMU e-mail" pattern="[a-z0-9]*@(masonlive\\.)?gmu\\.edu"><br>' +
@@ -150,7 +149,6 @@ $(document).ready(function() {
         $('#subtitle').html('<h2 class="subtitle">Search</h2>');
         $('.mainHeading').hide();
         $('.sectionHeading').show();
-        $('.bottomColumns').hide();
 
         //Collect information from starter data; populate searchBoxTable with Items
         var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
