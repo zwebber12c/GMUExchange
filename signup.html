@@ -8,6 +8,7 @@
   <link href ="stylesheet.css" rel = "stylesheet">
 </head>
 <body>
+  <div id = "main" class = main>
   <!--Menu-->
   <nav class = "menu">
     <ul>
@@ -22,22 +23,25 @@
 </h7>
 
 <!--Form to get Sign Up information from user-->
-<form class = "signup" action="placeholder">
+<form id = "sgnup" class = "signup"  action = "">
   <br>
-  Email:<input type="text" name="email" pattern="[a-z0-9]@masonlive.gmu.edu">
-  <br>
-  <br>
-  Password:<input type = "text" name = "password">
+  Email:<input id = "email" type="text" name="email" pattern="[a-z0-9]@masonlive.gmu.edu">
   <br>
   <br>
-  First name:<input type="text" name="firstname">
+  Password:<input id = "password" type = "text" name = "password">
   <br>
   <br>
-  Last name:<input type="text" name="lastname">
+  First name:<input id = "nameFirst" type="text" name="firstname">
   <br>
   <br>
-  <input class="button2" type="submit" value="Submit"><a href="index.html"></a>
+  Last name:<input id = "nameLast" type="text" name="lastname">
+  <br>
+  <br>
+  <button id = "submit" type = "button"  onclick = "created();">
+  Submit
+  </button>
 </form>
+</div>
 </body>
 
 <!--Footer-->
@@ -48,3 +52,38 @@
   <p><a href="https://github.com/zwebber12c/GMUExchange/tree/hw-submissions">GitHub</a></p>
 </div>
 </html>
+
+
+<!-- This script creates a user list and populates it with users when the form is filled out and submitted-->
+<script>
+var users = [];
+//when the user clicks submit it runs the createUser function
+document.getElementById("submit")
+	.addEventListener("click", createUser);
+	//creates a user and adds them to a list of all users (this is still a work in progress but this takes the data from the form
+	// to create a new user)
+ function createUser()
+{
+      	var user =
+       	{
+       		Email: document.getElementById('email').value,
+              	Password: document.getElementById('password').value,
+              	NameFirst: document.getElementById('nameFirst').value,
+              	NameLast: document.getElementById('nameLast').value
+      	};
+      	users.push(user);
+	
+}
+       //this function disables the submit button and then creates a new message on the screen
+function created()
+{  		
+	var disable = document.querySelector("button");
+    	disable.setAttribute("disabled", "disabled");
+    	var p = document.createElement("P");        
+	var t = document.createTextNode("Account created, you are free to search our listings or create your own now!");
+	p.appendChild(t);
+	document.getElementById("sgnup").appendChild(p);
+	
+}
+  </script>
+
