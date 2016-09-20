@@ -1,8 +1,8 @@
 /* The Stylesheet defines CSS styling for every page and item in the GMUExchange
    website.*/
 
-/* Text styling*/
-p,h1,h2,h3,h4,h5,h6,li,.bottomColumns,.creds,.search{
+    /* Text styling*/
+p, h1, h2, h3, h4, h5, h6, li, .bottomColumns, .creds, .search {
   font-family: sans-serif;
 }
 a {
@@ -46,6 +46,7 @@ li.left {
   float: left;
 }
 
+/*Log out styling*/
 #logOut{
     display: inline-block;
     visibility: hidden;
