@@ -158,11 +158,11 @@ $(document).ready(function() {
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
             '<button class = "button" id = "postButton">Post new item</button></td></tr></table>' +
             '<div class = "newItem" disabled = "true"><form class = newItemForm" action = "">' +
-            '<input type = "file" name = "image" placeholder = "Image"/><input type = "text2" name = "item" value = "" placeholder = "description"/>' +
+            '<input type = "file" name = "image" placeholder = "Image"/><br><input type = "text2" name = "item" value = "" placeholder = "description"/>' +
             '<br><input type = "text2" name = "price" value = "" placeholder = "Price"/><br><input type = "text2" name = "sellerContact" value = "" placeholder = "Contact Info"/>' +
             '<br><button class = "button" id = cotactSeller">Contact Seller</button>' +
             '<br><button class = "button" id = "postItem">Submit Item</button></div>' +
-            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact</th></tr>';
+            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact<br><button class = "button" id = cotactSeller">Contact Seller</button></th></tr>';
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
                 '</td><td>'+ item.price+'</td></tr>');
