@@ -150,7 +150,7 @@ $(document).ready(function() {
         $('#subtitle').html('<h2 class="subtitle">Search</h2>');
         $('.mainHeading').hide();
         $('.sectionHeading').show();
-        $('.newItem').hide();
+        $('#newItem').hide();
 
         //Collect information from starter data; populate searchBoxTable with Items
         var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
@@ -165,13 +165,13 @@ $(document).ready(function() {
         
         $('#content').html(temp);
         $(document).on("click", '#postButton', function(){
-            $('newItem').show();
+            $('#newItem').css({"display": "block"});
             $('#postItem').click(function(){
                 var item = { 
                     image: $('#image').val(), item: $('#item').val(), price: $('#price').val(), seller: $('#sellerContact').val()
                            };
                 items.push(item);
-                $('newItem').hide();
+                $('#newItem').css({"display": "none"});
             }); 
         });
         for (item of items) {
