@@ -8,10 +8,11 @@ var features = [{name: "Feature 1", detail: "Feat 1 Lorem ipsum dolor sit amet, 
     {name: "Feature 2", detail: "Feat 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
     {name: "Feature 3", detail: "Feat 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}];
 
-var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
+/*var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
     {image: "IMAGE 2", description: "DESCRIPTION 2", price: "$XXX.XX"},
     {image: "IMAGE 3", description: "DESCRIPTION 3", price: "$XXX.XX"},
-    {image: "IMAGE 4", description: "DESCRIPTION 4", price: "$XXX.XX"}];
+    {image: "IMAGE 4", description: "DESCRIPTION 4", price: "$XXX.XX"}];*/
+var items = [];
 
 
 $(document).ready(function() {
@@ -156,20 +157,25 @@ $(document).ready(function() {
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
             '<button class = "button" id = "postButton">Post new item</button></td></tr></table>' +
             '<div class = "newItem" disabled = "true"><form class = newItemForm" action = "">' +
-            '<input type = "file" name = "image"/><input type = "text" name = "Item" value = ""/>' +
+            '<input type = "file" name = "image"/><input type = "text" name = "item" value = ""/>' +
             '<input type = "text" name = "price" value = ""/><input type = "text" name = "sellerContact" value = ""/>' +
             '<button class = "button" id = "postItem">Submit Item</button></div>' +
-            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
+            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact</th></tr>';
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
                 '</td><td>'+ item.price+'</td></tr>');
         }
         temp = temp.concat('</table></div>');
         $('#content').html(temp);
-        $(document).on("click", 'postButton', function(){
-            newitem.show();
-            
-            
+        $(document).on("click", '#postButton', function(){
+            $('.newitem').show();
+            $('#postItem').click(function(){
+                var item = { 
+                    image: $('#image').val(), item: $('#item').val(), price: $('#price').val(), seller: $('#sellerContact').val()
+                           };
+                items.push(item);
+                $('#newitem').hide();
+            }); 
         });
     });
 
