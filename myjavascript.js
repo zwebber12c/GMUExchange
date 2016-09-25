@@ -169,13 +169,13 @@ $(document).ready(function() {
         temp = temp.concat('</table></div>');
         $('#content').html(temp);
         $(document).on("click", '#postButton', function(){
-            $('.newitem').show();
+            $('div.newitem').show();
             $('#postItem').click(function(){
                 var item = { 
                     image: $('#image').val(), item: $('#item').val(), price: $('#price').val(), seller: $('#sellerContact').val()
                            };
                 items.push(item);
-                $('#newitem').hide();
+                $('div.newitem').hide();
             }); 
         });
     });
