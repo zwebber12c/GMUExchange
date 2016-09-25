@@ -164,6 +164,7 @@ $(document).ready(function() {
             '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact<br><button class = "button" id = cotactSeller">Contact Seller</button></th></tr>';
         
         $('#content').html(temp);
+        });
         $(document).on("click", '#postButton', function(){
             $('#newItem').css({"display": "block"});
             $('#postItem').click(function(){
@@ -179,7 +180,7 @@ $(document).ready(function() {
                 '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
         }
         temp = temp.concat('</table></div>');
-    });
+    
 
     //log out page
     $('#logOut').click(function(){
