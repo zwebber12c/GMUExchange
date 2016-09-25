@@ -165,6 +165,7 @@ $(document).ready(function() {
         
         $('#content').html(temp);
         });
+    
         $(document).on("click", '#postButton', function(){
             $('#newItem').css({"display": "block"});
             $('#postItem').click(function(){
@@ -174,12 +175,12 @@ $(document).ready(function() {
                 items.push(item);
                 $('#newItem').css({"display": "none"});
             }); 
-        });
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
                 '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
         }
         temp = temp.concat('</table></div>');
+       });
     
 
     //log out page
