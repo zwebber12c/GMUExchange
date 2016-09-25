@@ -165,13 +165,13 @@ $(document).ready(function() {
         
         $('#content').html(temp);
         $(document).on("click", '#postButton', function(){
-            $('#newItem').css({"visibility": "visible"});
+            $('#newItem').css({"display": "block"});
             $('#postItem').click(function(){
                 var item = { 
                     image: $('#image').val(), item: $('#item').val(), price: $('#price').val(), seller: $('#sellerContact').val()
                            };
                 items.push(item);
-                $('#newItem').css({"visibility": "hidden"});
+                $('#newItem').css({"display": "none"});
             }); 
         });
         for (item of items) {
