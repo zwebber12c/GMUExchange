@@ -176,7 +176,7 @@ $(document).ready(function() {
         });
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
-                '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>);
+                '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
         }
         temp = temp.concat('</table></div>');
     });
