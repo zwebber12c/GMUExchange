@@ -129,7 +129,7 @@ $(document).ready(function() {
             '<br>Password:<br><input type="password" id = "password" placeholder = "password"><br>' +
             '<br>First name:<br><input type="text" placeholder = "First Name" id="firstName"><br>' +
             '<br>Last name:<br><input type="text" id="lastName" placeholder = "Last Name"><br>' +
-            '<br><button class = "button" id = "signUpButton" onlick = "createUser():">Sign Up</button></form>'
+            '<br><button class = "button" id = "signUpButton" onlick = "createUser();">Sign Up</button></form>'
         );
          function createUser(){             //this takes data entered into the sign up fields and creates a new user and add its to the user list
             var user = {
@@ -154,6 +154,11 @@ $(document).ready(function() {
         var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
             '<p>Search: <input type = "text" placeholder = "Search terms" id = "searchBox"/></p></label></td><td>' +
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
+            '<button class = "button" id = "postButton">Post new item</button></td></tr></table>' +
+            '<div class = "newItem" disabled = "true"><form class = newItemForm" action = "">' +
+            '<input type = "file" name = "image"/><input type = "text" name = "Item" value = ""/>' +
+            '<input type = "text" name = "price" value = ""/><input type = "text" name = "sellerContact" value = ""/>' +
+            '<button class = "button" id = "postItem">Submit Item</button></div>' +
             '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
@@ -161,6 +166,11 @@ $(document).ready(function() {
         }
         temp = temp.concat('</table></div>');
         $('#content').html(temp);
+        $(document).on("click", 'postButton', function(){
+            newitem.show();
+            
+            
+        });
     });
 
     //log out page
