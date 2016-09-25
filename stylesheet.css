@@ -113,6 +113,17 @@ input[type="text"]{
   font-size: 17px;
   width: 80%;
 }
+.newItem {
+ display: none;   
+}
+
+.newItemForm {
+   width: 50%;
+   padding: 10px;
+}
+input[type = "text2"]{
+   width: 80px;
+}
 
 /*Title, Subtitle, and Home Page login styling*/
 .title, .subtitle, .quickLogin{
