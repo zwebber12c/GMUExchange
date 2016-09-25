@@ -157,8 +157,9 @@ $(document).ready(function() {
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
             '<button class = "button" id = "postButton">Post new item</button></td></tr></table>' +
             '<div class = "newItem" disabled = "true"><form class = newItemForm" action = "">' +
-            '<input type = "file" name = "image"/><input type = "text" name = "item" value = ""/>' +
-            '<input type = "text" name = "price" value = ""/><input type = "text" name = "sellerContact" value = ""/>' +
+            '<input type = "file" name = "image" placeholder = "Image"/><input type = "text" name = "item" value = "" placeholder = "description"/>' +
+            '<input type = "text" name = "price" value = "" placeholder = "Price"/><input type = "text" name = "sellerContact" value = "" placeholder = "Contact Info"/>' +
+            '<button class = "button" id = cotactSeller">Contact Seller</button>' +
             '<button class = "button" id = "postItem">Submit Item</button></div>' +
             '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact</th></tr>';
         for (item of items) {
