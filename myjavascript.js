@@ -180,18 +180,19 @@ $(document).ready(function() {
                 '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
         }
         temp = temp.concat('</table></div>');
-       });
-    $('#contactSeller').click(function(){
-         var name = $('description').val();
-         var email = $('#sellerContact').val();
-         var message = $("placeholder").val();
+        $('#contactSeller').click(function(){
+           var name = $('description').val();
+           var email = $('#sellerContact').val();
+           var message = $("placeholder").val();
     
-         varData = 'name = ' + name + '&email = ' + email + 'message = ' + message;
+           varData = 'name = ' + name + '&email = ' + email + 'message = ' + message;
          $.ajax({
              type: "POST",
              url: 'email.php',
              data: varData
          });
+       });
+    
              
     
 
