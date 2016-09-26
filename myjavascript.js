@@ -180,6 +180,9 @@ $(document).ready(function() {
                 '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
         }
         temp = temp.concat('</table></div>');
+            
+       });
+    $(document).ready(function(){
         $('#contactSeller').click(function(){
            var name = $('description').val();
            var email = $('#sellerContact').val();
@@ -192,7 +195,7 @@ $(document).ready(function() {
              data: varData
              });
          });
-       });
+    });
     
              
     
