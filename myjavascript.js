@@ -162,7 +162,11 @@ $(document).ready(function() {
             '<br><input type = "text2" name = "price" value = "" placeholder = "Price"/><br><input type = "text2" name = "sellerContact" value = "" placeholder = "Contact Info"/>' +
             '<br><button class = "button" id = "postItem">Submit Item</button></div>' +
             '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact<br><button class = "button" id = contactSeller">Contact Seller</button></th></tr>';
-        
+        for (item of items) {
+            temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
+                '</td><td>'+ item.price+'</td></tr>');
+        }
+        temp = temp.concat('</table></div>');
         $('#content').html(temp);
         });
     
@@ -196,13 +200,12 @@ $(document).ready(function() {
              });
          });
     });
-    
-             
-    
 
     //log out page
     $('#logOut').click(function(){
         $('.rightMenuLinks').show();
+        $('.mainHeading').show();
+        $('.sectionHeading').hide();
         $('#userName').css({"visibility": "hidden"});
         $('#logOut').css({"visibility": "hidden"}); //http://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery
     });
@@ -211,5 +214,4 @@ $(document).ready(function() {
     $('#backLink').click(function(){
         history.back(1);
     });
-
 });
