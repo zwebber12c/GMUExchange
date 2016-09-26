@@ -170,7 +170,7 @@ $(document).ready(function() {
         $('#content').html(temp);
         });
     
-        $(document).on("click", '#postButton', function(){
+        $('#postButton').click(function(){
             $('#newItem').css({"display": "block"});
             $('#postItem').click(function(){
                 var item = { 
