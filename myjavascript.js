@@ -190,6 +190,7 @@ $(document).ready(function() {
              type: "POST",
              url: 'email.php',
              data: varData
+             });
          });
        });
     
