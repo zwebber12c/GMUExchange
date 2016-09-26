@@ -161,7 +161,7 @@ $(document).ready(function() {
             '<input type = "file" name = "image" placeholder = "Image"/><br><input type = "text2" name = "description" value = "" placeholder = "description"/>' +
             '<br><input type = "text2" name = "price" value = "" placeholder = "Price"/><br><input type = "text2" name = "sellerContact" value = "" placeholder = "Contact Info"/>' +
             '<br><button class = "button" id = "postItem">Submit Item</button></div>' +
-            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact<br><button class = "button" id = cotactSeller">Contact Seller</button></th></tr>';
+            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact<br><button class = "button" id = contactSeller">Contact Seller</button></th></tr>';
         
         $('#content').html(temp);
         });
@@ -181,6 +181,18 @@ $(document).ready(function() {
         }
         temp = temp.concat('</table></div>');
        });
+    $('#contactSeller').click(function(){
+         var name = $('description').val();
+         var email = $('#sellerContact').val();
+         var message = $("placeholder").val();
+    
+         varData = 'name = ' + name + '&email = ' + email + 'message = ' + message;
+         $.ajax({
+             type: "POST",
+             url: 'email.php',
+             data: varData
+         });
+             
     
 
     //log out page
