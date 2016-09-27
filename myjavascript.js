@@ -161,7 +161,7 @@ $(document).ready(function() {
             '<input type = "file" name = "image" placeholder = "Image"/><br><input type = "text2" name = "description" value = "" placeholder = "description"/>' +
             '<br><input type = "text2" name = "price" value = "" placeholder = "Price"/><br><input type = "text2" name = "sellerContact" value = "" placeholder = "Contact Info"/>' +
             '<br><button class = "button" id = "postItem">Submit Item</button></div>' +
-            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact<br><button class = "button" id = contactSeller">Contact Seller</button></th></tr>';
+            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact</th></tr>';
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
                 '</td><td>'+ item.price+'</td></tr>');
@@ -176,7 +176,26 @@ $(document).ready(function() {
                 var item = { 
                     image: $('#image').val(), item: $('#item').val(), price: $('#price').val(), seller: $('#sellerContact').val()
                            };
+                //use ajax to get amazon prices for textbooks
+                $(document).ready(function(){
+                     var currentdate = new Date(); 
+                     var datetime = currentdate.getFullYear() + "-"
+                             + (currentdate.getMonth()+1)  + "-" 
+                             + currentdate.getDate() + " T "  
+                             + currentdate.getHours() + ":"  
+                             + currentdate.getMinutes() + ":" 
+                             + currentdate.getSeconds() + "Z";
+        
+                     var url = "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers"
+                     + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime;
+               $.ajax({
+                       type: "GET",
+                       url: url;
+                  });
+                       document.getElementById("prices").innerHTML = this.responseText;
+                 });
                 items.push(item);
+                var price = '<div>Suggested price is </div><div class = "prices" id = "prices"></div>'
                 $('#newItem').css({"display": "none"});
             }); 
         for (item of items) {
@@ -201,22 +220,7 @@ $(document).ready(function() {
              });
          });
     });
-    //use ajax to get amazon prices for textbooks
-    $(document).ready(function(){
-        $.ajax({
-            type: "POST",
-            url: 'https://webservice.amazon.com/onca/xml?',
-            data: newData{
-            Service=AWSECommerceService
-            &Operation=ItemLookup
-            &ResponseGroup=Offers
-            &IDType=ISBN
-            &ItemID=0471785970
-            &AssociateTag=7737-9891-0887
-            &AWSAccessKeId=AKIAI5SPVRJQIMS36LPA
-        }
-               });
-
+    
     //log out page
     $('#logOut').click(function(){
         $('.rightMenuLinks').show();
