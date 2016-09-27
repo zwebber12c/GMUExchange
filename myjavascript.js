@@ -194,7 +194,7 @@ $(document).ready(function() {
                        document.getElementById("prices").innerHTML = this.responseText;
                  });
                 items.push(item);
-                var price = '<div>Suggested price is </div><div class = "prices" id = "prices"></div>'
+                var price = '<div>Suggested price is </div><div class = "prices" id = "prices"></div>';
                 $('#newItem').css({"display": "none"});
             }); 
         for (item of items) {
