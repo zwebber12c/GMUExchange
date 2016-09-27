@@ -26,4 +26,4 @@ The four scenarios we decided on were as follows:
    Registered and non-registered users can browse products by entering keywords into a search bar. The page displays the results after      the search button is clicked.
    Not included in this submission: Results can be filtered by category (and subcategory if the main category is miscellaneous), class      name, professor, and price. Users are provided options for filters to narrow down results.
 
-We implimented the post a product and search scenario this week.
+*We implemented the post a product and search scenario in HW 3.
