@@ -150,7 +150,6 @@ $(document).ready(function() {
         $('#subtitle').html('<h2 class="subtitle">Search</h2>');
         $('.mainHeading').hide();
         $('.sectionHeading').show();
-        $('#newItem').hide();
 
         //Collect information from starter data; populate searchBoxTable with Items
         var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
@@ -179,15 +178,15 @@ $(document).ready(function() {
                 //use ajax to get amazon prices for textbooks
                 $(document).ready(function(){
                      var currentdate = new Date(); 
-                     var datetime = currentdate.getFullYear() + "-"
+                     var datetime = { currentdate.getFullYear() + "-"
                              + (currentdate.getMonth()+1)  + "-" 
                              + currentdate.getDate() + " T "  
                              + currentdate.getHours() + ":"  
                              + currentdate.getMinutes() + ":" 
-                             + currentdate.getSeconds() + "Z";
+                             + currentdate.getSeconds() + "Z"};
         
-                     var url = "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers"
-                     + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime;
+                     var url = { "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers"
+                     + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime};
                $.ajax({
                        type: "GET",
                        url: url;
@@ -201,9 +200,7 @@ $(document).ready(function() {
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
                 '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
-        }
-        temp = temp.concat('</table></div>');
-            
+        }            
        });
     //use ajax to send email to seller
     $(document).ready(function(){
