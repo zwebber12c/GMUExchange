@@ -189,7 +189,7 @@ $(document).ready(function() {
                      + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime};
                $.ajax({
                        type: "GET",
-                       url: url;
+                       url: url
                   });
                        document.getElementById("prices").innerHTML = this.responseText;
                  });
