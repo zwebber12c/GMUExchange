@@ -161,10 +161,8 @@ $(document).ready(function() {
         '<button class = "button" id = "postItem">Submit Item</button></form></div>';
         $('#content').html(temp);
         $('#postItem').click(function(){
-            window.alert('post item clicked');
             var item = {
                 image: "SUBMITTED IMAGE", description: $('#newItemDescription').val(),price: '$'+$('#newItemPrice').val()};
-            window.alert(item.description);
             //use ajax to get amazon prices for textbooks
             //$(document).ready(function(){
                 /*var currentdate = new Date();
