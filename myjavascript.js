@@ -202,6 +202,7 @@ $(document).ready(function() {
                 '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
         }            
        });
+    
     //use ajax to send email to seller
     $(document).ready(function(){
         $('#contactSeller').click(function(){
@@ -216,6 +217,29 @@ $(document).ready(function() {
              data: varData
              });
          });
+        
+        //provide search function
+        $('#searchButton').click(function(){
+            var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
+                '<p>Search: <input type = "text" placeholder = "Search terms" id = "searchBox"/></p></label></td><td>' +
+                '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
+                '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
+            var results = "";
+            for (item of items) {
+                var searchRegex = new RegExp('.*'+$('#searchBox').val()+'.*');
+                if (item.description.match(searchRegex) != null) {
+                    results = results.concat('<tr><td>' + item.image + '</td><td>' + item.description +
+                        '</td><td>' + item.price + '</td></tr>');
+                }
+            }
+            if(results == ""){
+                results = results.concat('<tr><td>' + '</td><td>' + 'No Items Found matching search: ' +
+                    $('#searchBox').val() + '</td><td>' + '</td></tr>');
+            }
+            results = results.concat('</table></div>');
+            temp = temp.concat(results);
+            $('#content').html(temp);
+        });
     });
     
     //log out page
