@@ -218,6 +218,7 @@ $(document).ready(function() {
              data: varData
              });
          });
+      });
         
         //provide search function
         $('#searchButton').click(function(){
@@ -241,7 +242,6 @@ $(document).ready(function() {
             temp = temp.concat(results);
             $('#content').html(temp);
         });
-    });
     
     //log out page
     $('#logOut').click(function(){
