@@ -170,7 +170,7 @@ $(document).ready(function() {
         });
     
         $('#postButton').click(function(){
-            $('#newItem').css({"display": "block"});
+            $('#newItem').css({"display": 'block'});
             $('#postItem').click(function(){
                 var item = { 
                     image: $('#image').val(), item: $('#item').val(), price: $('#price').val(), seller: $('#sellerContact').val()
