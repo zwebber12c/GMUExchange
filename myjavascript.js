@@ -186,6 +186,7 @@ $(document).ready(function() {
         temp = temp.concat('</table></div>');
             
        });
+    //use ajax to send email to seller
     $(document).ready(function(){
         $('#contactSeller').click(function(){
            var name = $('description').val();
@@ -200,6 +201,21 @@ $(document).ready(function() {
              });
          });
     });
+    //use ajax to get amazon prices for textbooks
+    $(document).ready(function(){
+        $.ajax({
+            type: "POST",
+            url: 'https://webservice.amazon.com/onca/xml?',
+            data: newData{
+            Service=AWSECommerceService
+            &Operation=ItemLookup
+            &ResponseGroup=Offers
+            &IDType=ISBN
+            &ItemID=0471785970
+            &AssociateTag=7737-9891-0887
+            &AWSAccessKeId=AKIAI5SPVRJQIMS36LPA
+        }
+               });
 
     //log out page
     $('#logOut').click(function(){
