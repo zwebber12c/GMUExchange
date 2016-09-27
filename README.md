@@ -3,6 +3,7 @@ Marketplace to buy and sell textbooks, notebooks, or other class materials.
 
 
 the four scenarios we decided on were as follows:
+
 1.)Register
       A new user can sign in to GMUExchange by providing an e-mail address and password. The application checks that the e-mails is           affiliated with GMU through use of regular expressions (ends in @gmu.edu or @masonlive.gmu.edu). The application sets the user’s       netID to his username, and the user can then log in by providing either his netID, his @gmu.edu e-mail, or his @masonlive.gmu.edu       e-mail and his password. Credentials can be changed after registration.
       
