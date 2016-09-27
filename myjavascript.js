@@ -185,11 +185,12 @@ $(document).ready(function() {
                              + currentdate.getMinutes() + ":" 
                              + currentdate.getSeconds() + "Z"};
         
-                     var url = { "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers"
-                     + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime};
+                     //var url = { "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers"
+                    // + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime};
                $.ajax({
                        type: "GET",
-                       url: url
+                       url: "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers"
+                        + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ datetime
                   });
                        document.getElementById("prices").innerHTML = this.responseText;
                  });
