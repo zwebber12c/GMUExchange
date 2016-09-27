@@ -8,10 +8,10 @@ var features = [{name: "Feature 1", detail: "Feat 1 Lorem ipsum dolor sit amet, 
     {name: "Feature 2", detail: "Feat 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
     {name: "Feature 3", detail: "Feat 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}];
 
-var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
-    {image: "IMAGE 2", description: "DESCRIPTION 2", price: "$XXX.XX"},
-    {image: "IMAGE 3", description: "DESCRIPTION 3", price: "$XXX.XX"},
-    {image: "IMAGE 4", description: "DESCRIPTION 4", price: "$XXX.XX"}];
+var items = [{image: "IMAGE 1", description: "Research Methods and Statistics - 5th edition\nISBN13: 978-1305257795", price: "$144.48"},
+ {image: "IMAGE 2", description: "Principles of Anatomy and Physiology -Text Only - 14th edition\nISBN13: 978-1118345009", price: "$150.96"},
+ {image: "IMAGE 3", description: "Power System Analysis and Design - 6th edition\nISBN13: 978-1305632134", price: "$148.49"},
+ {image: "IMAGE 4", description: "Anatomy and Physiology - With Mastering A and P - 6th edition\nISBN13: 978-0134201665", price: "$249.90"}];
 
 
 $(document).ready(function() {
@@ -21,19 +21,6 @@ $(document).ready(function() {
     //show main heading, hide section heading
     $('.mainHeading').show();
     $('.sectionHeading').hide();
-    /*
-     Initial attempt after https://piazza.com/class/irw2gs1od6u14p?cid=34:
-
-     $('#content').html(
-     '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr>'
-     );
-     for (feature of features) {
-     $('#content').append('<td><h3>' + feature.name + '</h3>' + feature.detail + '</td>'); //FIX
-     }
-     $('#content').append('</tr></table></div>');
-
-     The class did not apply to the items being added until the newer method of concat() was applied
-     */
     //Collect information from starter data; populate bottomColumns with Features
     var temp = '<div class = "bottomColumns"><h1 class = "features">Features</h1><table><tr>';
     for (feature of features) {
@@ -129,17 +116,17 @@ $(document).ready(function() {
             '<br>Password:<br><input type="password" id = "password" placeholder = "password"><br>' +
             '<br>First name:<br><input type="text" placeholder = "First Name" id="firstName"><br>' +
             '<br>Last name:<br><input type="text" id="lastName" placeholder = "Last Name"><br>' +
-            '<br><button class = "button" id = "signUpButton" onlick = "createUser():">Sign Up</button></form>'
+            '<br><button class = "button" id = "signUpButton" onlick = "createUser();">Sign Up</button></form>'
         );
-         function createUser(){             //this takes data entered into the sign up fields and creates a new user and add its to the user list
+        function createUser(){             //this takes data entered into the sign up fields and creates a new user and add its to the user list
             var user = {
-                    email: document.getElementById('email').value,
-                    password: document.getElementById('password').value,
-                    first_name: document.getElementById('nameFirst').value,
-                    last_name: document.getElementById('nameLast').value
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                first_name: document.getElementById('nameFirst').value,
+                last_name: document.getElementById('nameLast').value
             };
             users.push(user);
-         }
+        }
     });
 
     //search page
@@ -154,18 +141,99 @@ $(document).ready(function() {
         var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
             '<p>Search: <input type = "text" placeholder = "Search terms" id = "searchBox"/></p></label></td><td>' +
             '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
-            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
+            '<button class = "button" id = "postButton">Post new item</button></td></tr></table>' +
+            '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th><th>Seller Contact</th></tr>';
+
         for (item of items) {
             temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
                 '</td><td>'+ item.price+'</td></tr>');
         }
         temp = temp.concat('</table></div>');
         $('#content').html(temp);
+
+    $('#postButton').click(function(){
+        $('#subtitle').html('<h2 class="subtitle">Post New Item</h2>');
+        var temp = '<div class = "search" data-list-size="4">'+
+            '<form class = newItemForm" action = "">' +
+        '<br>Description:<br><input type = "text" id = "newItemDescription" placeholder = "Description"/>'+
+        '<br>Price:<br><input type = "text" id = "newItemPrice" placeholder = "Price"/>' +
+        '<br>Contact Info:<br><input type = "text" id = "newItemSellerContact" placeholder = "Contact Info"/>' +
+        '<button class = "button" id = "postItem">Submit Item</button></form></div>';
+        $('#content').html(temp);
+        $('#postItem').click(function(){
+            var item = {
+                image: "SUBMITTED IMAGE", description: $('#newItemDescription').val(),price: '$'+$('#newItemPrice').val()};
+            //use ajax to get amazon prices for textbooks
+            //$(document).ready(function(){
+                /*var currentdate = new Date();
+                var datetime = { currentdate.getFullYear() + "-"
+                    + (currentdate.getMonth()+1)  + "-"
+                    + currentdate.getDate() + " T "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds() + "Z"}*/
+
+                var url = { "https://webservice.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ResponseGroup=Offers": + "&IDType=ISBN&ItemID=0471785970&AssociateTag=7737-9891-0887&AWSAccessKeId=AKIAI5SPVRJQIMS36LPA&Timestamp="+ newDate()};
+                $.ajax({
+                    type: "GET",
+                    url: url
+                });
+                document.getElementById("prices").innerHTML = this.responseText;
+            items.push(item);
+            console.log(items);
+            //var price = '<div>Suggested price is </div><div class = "prices" id = "prices"></div>'
+            //$('#newItem').css({"display": "none"});
+        });
+        for (item of items) {
+            temp = temp.concat('<tr><td>' + item.image + '</td><td>'+ item.description +
+                '</td><td>'+ item.price + '</td></tr>' + item.sellerContact+'</td><tr>');
+        }
+    });
+
+    //use ajax to send email to seller
+    //$(document).ready(function() {
+        $('#contactSeller').click(function () {
+            var name = $('description').val();
+            var email = $('#sellerContact').val();
+            var message = $("placeholder").val();
+
+            varData = 'name = ' + name + '&email = ' + email + 'message = ' + message;
+            $.ajax({
+                type: "POST",
+                url: 'email.php',
+                data: varData
+            });
+        });
+    //});
+        //provide search function
+        $('#searchButton').click(function(){
+            var temp = '<div class = "search" data-list-size="4"><table class = "searchBoxTable"><tr><td><label>' +
+                '<p>Search: <input type = "text" placeholder = "Search terms" id = "searchBox"/></p></label></td><td>' +
+                '<button class = "button" id = "searchButton">Submit</button></td></tr></table>' +
+                '<table class = "searchResultTable"><tr><th>Image</th><th>Description</th><th>Price</th></tr>';
+            var results = "";
+            for (item of items) {
+                var searchRegex = new RegExp('.*'+$('#searchBox').val()+'.*');
+                if (item.description.match(searchRegex) != null) {
+                    results = results.concat('<tr><td>' + item.image + '</td><td>' + item.description +
+                        '</td><td>' + item.price + '</td></tr>');
+                }
+            }
+            if(results == ""){
+                results = results.concat('<tr><td>' + '</td><td>' + 'No Items Found matching search: ' +
+                    $('#searchBox').val() + '</td><td>' + '</td></tr>');
+            }
+            results = results.concat('</table></div>');
+            temp = temp.concat(results);
+            $('#content').html(temp);
+        });
     });
 
     //log out page
     $('#logOut').click(function(){
         $('.rightMenuLinks').show();
+        $('.mainHeading').show();
+        $('.sectionHeading').hide();
         $('#userName').css({"visibility": "hidden"});
         $('#logOut').css({"visibility": "hidden"}); //http://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery
     });
@@ -174,5 +242,4 @@ $(document).ready(function() {
     $('#backLink').click(function(){
         history.back(1);
     });
-
 });
