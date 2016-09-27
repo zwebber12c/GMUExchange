@@ -8,10 +8,10 @@ var features = [{name: "Feature 1", detail: "Feat 1 Lorem ipsum dolor sit amet, 
     {name: "Feature 2", detail: "Feat 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
     {name: "Feature 3", detail: "Feat 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}];
 
-var items = [{image: "IMAGE 1", description: "DESCRIPTION 1", price: "$XXX.XX"},
- {image: "IMAGE 2", description: "DESCRIPTION 2", price: "$XXX.XX"},
- {image: "IMAGE 3", description: "DESCRIPTION 3", price: "$XXX.XX"},
- {image: "IMAGE 4", description: "DESCRIPTION 4", price: "$XXX.XX"}];
+var items = [{image: "IMAGE 1", description: "Research Methods and Statistics - 5th edition ISBN13: 978-1305257795", price: "$144.48"},
+ {image: "IMAGE 2", description: "Principles of Anatomy and Physiology -Text Only - 14th edition ISBN13: 978-1118345009", price: "$150.96"},
+ {image: "IMAGE 3", description: "Power System Analysis and Design - 6th edition ISBN13: 978-1305632134", price: "$148.49"},
+ {image: "IMAGE 4", description: "Anatomy and Physiology - With Mastering A and P - 6th edition ISBN13: 978-0134201665", price: "$249.90"}];
 
 
 $(document).ready(function() {
